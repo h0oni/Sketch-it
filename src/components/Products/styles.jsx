@@ -7,7 +7,7 @@ export default makeStyles((theme) => ({
     height: '100vh',
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing(4),
-    background: 'linear-gradient(#f5af19,#f12711)',
+    // background: 'linear-gradient(#f5af19,#f12711)',
   },
   root: {
     flexGrow: 1,

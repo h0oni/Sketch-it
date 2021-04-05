@@ -3,15 +3,17 @@ import useStyles from './styles';
 import { Typography } from '@material-ui/core'
 
 const Timer = () => {
-    const [timerHours, setTimerHours] = useState('00');
-    const [timerMinutes, setTimerMinutes] = useState('00');
-    const [timerSeconds, setTimerSeconds] = useState('00');
+    const [time, setTime] = useState({
+        hours: 0,
+        minutes: 0,
+        seconds: 0
+    })
 
     let interval = useRef();
 
     const startTimer = () => {
         const countdownDate = new Date('April  07  2021 00:00:00').getTime();
-        interval = setInterval(()=>{
+        interval.current = setInterval(()=>{
             const now = new Date().getTime();
             const distance = countdownDate - now;
 
@@ -20,39 +22,39 @@ const Timer = () => {
             const seconds = Math.floor((distance % (1000*60)) / (1000));
             
             if (distance>0){
-                setTimerHours(hours);
-                setTimerMinutes(minutes);
-                setTimerSeconds(seconds);
+                setTime({hours, minutes, seconds});
             }
         },1000);
     };
 
     useEffect(()=>{
+        console.log('a')
         startTimer();
         return ()=>{
+            console.log('b')
             clearInterval(interval.current);
         }
-    })
+    },[])
 
     const classes = useStyles();
     return (
         <div className={classes.root}>
             <section>
-                <Typography variant='h5'>{timerHours}</Typography>
+                <Typography variant='h5'>{time.hours}</Typography>
                 <Typography><small>Hours</small></Typography>
             </section>
             <section>
                 <Typography variant='h5'>:</Typography>
             </section>
             <section>
-                <Typography variant='h5'>{timerMinutes}</Typography>
+                <Typography variant='h5'>{time.minutes}</Typography>
                 <Typography><small>Minutes</small></Typography>
             </section>
             <section>
                 <Typography variant='h5'>:</Typography>
             </section>
             <section>
-                <Typography variant='h5'>{timerSeconds}</Typography>
+                <Typography variant='h5'>{time.seconds}</Typography>
                 <Typography><small>Seconds</small></Typography>
             </section>
         </div>

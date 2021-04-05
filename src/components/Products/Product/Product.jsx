@@ -1,6 +1,5 @@
 import React from 'react'
-import { Card, CardMedia, CardContent, Typography, IconButton, CardActions } from '@material-ui/core'
-import { AddShoppingCart, RemoveIcon } from '@material-ui/icons'
+import { Card, CardMedia, CardContent, Typography, IconButton, } from '@material-ui/core'
 import { motion } from 'framer-motion';
 import Timer from './Timer/Timer'
 import AddBoxIcon from '@material-ui/icons/AddBox';

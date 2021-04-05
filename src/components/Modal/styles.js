@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export default makeStyles(() => ({
+export default makeStyles(() => (
+  {
   backdrop: {
     position: 'fixed',
     top: 0,
@@ -10,24 +11,21 @@ export default makeStyles(() => ({
     background: 'rgba(0,0,0,0.5)',
     display: 'flex',
     justifyContent: 'center',
+    alignItems: 'center',
   },
   card : {
     position: 'center',
     marginTop:'100px',
     margin:'5px',
     height: '80vh', //80vh
-    maxWidth: '480px', //480px
+    minWidth: 'min(460px, 95%)', //480px
     backgroundColor: 'transparent',
-    objectFit: 'fill'
   },
   image: {
-    // position: 'center',
-    boxshadow: '3px 5px 7px rgba(0,0,0,0.5)',
+    boxshadow: '5px rgba(0,0,0,0.5)',
     border: '3px solid white',
     height: '100%',
-    paddingTop: '0%',
     width: 'auto'
-
   },
   close: {
     cursor:'pointer', 
