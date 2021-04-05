@@ -1,0 +1,2 @@
+cd C:\VScode\React_everything\React_projects\e-commerce
+npm start
